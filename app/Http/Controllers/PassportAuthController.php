@@ -27,7 +27,7 @@ class PassportAuthController extends Controller
 public function login(Request $request){
     $data=[
         'email'=> $request->email,
-        'password'=> bcrypt($request->password),
+        'password'=> $request->password,
     ];
     if(auth()->attempt($data)){
         $token = auth()->user()->createToken('Gg')->accessToken;
