@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 class ProductController extends Controller
 {
     public function index()
@@ -45,7 +45,7 @@ class ProductController extends Controller
        if (is_null($product))
        {
           return response()->json([
-              "fail"=> false,
+              "status"=> false,
               "message"=> "Not found",
           ]);
        }
@@ -72,6 +72,7 @@ class ProductController extends Controller
 
       public function destroy(Product $product){
         $product->delete();
+
         return response()->json([
             'success'=> true,
             'message'=> 'product deleted successfully',

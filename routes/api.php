@@ -22,4 +22,12 @@ Route::middleware(['auth:api'])->group(function ()
 {
 Route::get('userinfo',[PassportAuthController::class,'userInfo']);
 Route::resource('products',ProductController::class);
+
+Route::post('products/store',[ProductController::class,'store']);
+Route::get('products/index/{id}',[ProductController::class,'show']);
+Route::delete('products/delete/{id}',[ProductController::class,'destroy']);
+Route::put('products/update',[ProductController::class,'update']);
+Route::get('products/showAll',[ProductController::class,'index']);
+
+
 });

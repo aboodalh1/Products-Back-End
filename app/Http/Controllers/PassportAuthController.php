@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+
 class PassportAuthController extends Controller
 {
 
@@ -35,6 +36,7 @@ public function login(Request $request){
 
     }
     else {
+        
         return response()->json(['error'=>'Unauthorized'],401);
     }
 
